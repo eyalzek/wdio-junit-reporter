@@ -224,11 +224,12 @@ var JunitReporter = (function (_events$EventEmitter) {
             }
 
             try {
+                var filename = undefined;
                 if (this.options.namingConvention === 'spec') {
                     var specName = _path2['default'].basename(capabilities.config.specs[0]).replace('.js', '');
-                    var _filename = 'WDIO.xunit.' + capabilities.sanitizedCapabilities + '.' + specName + '.xml';
+                    filename = 'WDIO.xunit.' + capabilities.sanitizedCapabilities + '.' + specName + '.xml';
                 } else {
-                    var _filename2 = 'WDIO.xunit.' + capabilities.sanitizedCapabilities + '.' + cid + '.xml';
+                    filename = 'WDIO.xunit.' + capabilities.sanitizedCapabilities + '.' + cid + '.xml';
                 }
                 var dir = _path2['default'].resolve(this.options.outputDir);
                 var filepath = _path2['default'].join(dir, filename);
